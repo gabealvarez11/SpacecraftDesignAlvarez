@@ -4,6 +4,7 @@
 
 xOD01 OD01;
 
+
 const char* ssid = "REDACTED";               // your network SSID (name)
 const char* pass = "REDACTED";             // your network password
 char servername[]="celestrak.com";           // Celestrak Server
@@ -16,10 +17,10 @@ void setup() {
   Wire.pins(2, 14);
 #endif
   Wire.begin();
-  
+
   // Start the OLED Display OD01
   OD01.begin();
-  
+
   Serial.begin(115200);
   OD01.print("Attempting to connect to WiFi");
   WiFi.begin(ssid, pass);
@@ -42,13 +43,13 @@ void makeRequest(){
     Serial.print("TLE for: ");
     // Make HTTP request:
     client.println("GET /NORAD/elements/iridium-33-debris.txt HTTP/1.0");     // rest of url for your chosen txt file, i.e extension following celestrak.com , Replace everything EXCEPT: GET HTTP/1.0
-    client.println();                                                         
+    client.println();
     }
-    
+
    // if there are incoming bytes available
    // from the server, read them and print them:
   char c;
-  int lineCounter=0; 
+  int lineCounter=0;
 
  while (!client.available()){
   // while loop runs while waiting for server availability
@@ -61,11 +62,11 @@ void makeRequest(){
     OD01.println(F("Invalid response"));
     return;
   }
-    
+
   while (client.available()) {
     c = client.read();
     Serial.print(c);
-    
+
     if (c == '\n'){
       lineCounter = lineCounter+1;
     }
@@ -83,6 +84,8 @@ void makeRequest(){
     client.stop();
   }
 }
+
+// Added comment in Atom!
 
 void loop() {
 }
