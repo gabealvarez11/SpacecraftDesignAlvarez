@@ -1,6 +1,6 @@
 % Takes input as [a e i raan arg_periapsis nu]. 
 % All angles in degrees and a in km.
-function func = OE2ECI(input)
+function func = KE2ECI(input)
     mu_earth = 3.986e5; % km^3/s^2
 
     a = input(1);

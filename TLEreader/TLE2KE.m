@@ -1,6 +1,6 @@
 % Returns vector of orbital elements [a e i raan arg_periapsis nu]' [deg]
-% given ["line 1"; "line 2"; "line 3"] in TLE format.
-function oe = tle2oe(input_tle)
+% given ["line 0"; "line 1"; "line 2"] in TLE format.
+function oe = TLE2KE(input_tle)
     oe = zeros(6,1);
     line_2 = char(input_tle(3));
 

@@ -1,0 +1,13 @@
+clc; clear all; close all;
+
+filename = "TLE.txt";
+fID = fopen(filename,'r');
+data = textscan(fID,'%s','Delimiter','\n');
+data_arr = ["Satellite TLE"; data{1,1}{1}; data{1,1}{2}];
+
+ke = TLE2KE(data_arr)
+ke
+for i=2:
+eci = KE2ECI(ke)
+
+norm(eci(:,1))
