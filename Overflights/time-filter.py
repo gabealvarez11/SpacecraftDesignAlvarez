@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 
 d = pd.read_csv('TECHEDSAT-10-PASSES.txt', delimiter='  ', header=4, engine='python')
